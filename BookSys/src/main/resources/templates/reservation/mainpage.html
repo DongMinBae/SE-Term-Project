@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>예약맛집</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
         <!-- Font Awesome icons (free version)-->
@@ -21,18 +21,17 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img th:src="@{/assets/main-img/navbar-logo.svg}" alt="..." /></a>
+                <a class="navbar-brand" href="./mainpage.html">예약맛집</a>
+                <!--<img th:src="@{/assets/main-img/navbar-logo.svg}" alt="..." />-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">예약</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">시그니처 메뉴</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">코스</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#login">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./selectday.html">예약 및 수정</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./review.html">리뷰</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../customer/login.html">로그인</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,14 +41,14 @@
             <div class="container">
                 <div class="masthead-subheading">Welcome To Our Restaurant!</div>
                 <div class="masthead-heading text-uppercase">우리의 예술에 빠지다</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="./selectday.html">예약</a>
             </div>
         </header>
-        <!--예약-->
+        <!--운영시간-->
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">예약</h2>
+                    <h2 class="section-heading text-uppercase">운영시간</h2>
                     <h3 class="section-subheading text-muted"></h3>
                 </div>
                 <div class="row text-center">
@@ -69,7 +68,6 @@
                         <h4 class="my-3">저녁</h4>
                         <p class="text-muted">오후 5:30 ~ 오후 9:30</p>
                     </div> 
-                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">예약하기</button>
                 </div>
             </div>
         </section>
@@ -224,28 +222,6 @@
                 </ul>
             </div>
         </section>
-        <!--셰프 Team-->
-        <section class="page-section bg-light" id="team">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Chef Team</h2>
-                    <!--<h3 class="section-subheading text-muted">...</h3>-->
-                </div>
-                <div class="row">
-                    <div class="col-lg">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" th:src="@{/assets/main-img/team/1.jpg}" alt="..." />
-                            <h4>안성재</h4>
-                            <p class="text-muted">Head Chef</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">베테랑 셰프 안성재는 미국 등지의 미슐랭 레스토랑에서 경력을 쌓았습니다. <br>셰프 안성재는 한국 곳곳의 신선한 제철 식재료를 활용해 그만의 스타일의 요리를 선보이고 있습니다.</p></div>
-                </div>
-            </div>
-        </section>
-      
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
