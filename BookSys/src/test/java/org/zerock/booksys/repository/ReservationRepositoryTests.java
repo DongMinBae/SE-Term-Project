@@ -18,7 +18,6 @@ public class ReservationRepositoryTests {
     @Test
     public void TestInsert(){
         Reservation reservation = Reservation.builder()
-                .arrivalTime(LocalDateTime.now())
                 .customer(
                         Customer.builder().cno(1L).build()
                 )

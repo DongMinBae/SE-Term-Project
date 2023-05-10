@@ -12,7 +12,6 @@ import org.zerock.booksys.service.CustomerService;
 @Log4j2
 @RequiredArgsConstructor
 public class CustomerController {
-    private final CustomerService customerService;
 
     @GetMapping("/login")
     public void login(){
