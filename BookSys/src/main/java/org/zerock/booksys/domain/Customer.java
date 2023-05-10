@@ -11,18 +11,25 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "roleSet")
 public class Customer {
 
     @Id
-    @Column(name = "cno")
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //번호 순서대로 부여
-    private Long cno;
+    @Column(name = "cid")
+    private String cId;
+
+    @Column(name = "cpassword")
+    private String cPassword;
 
     @Column(name = "name")
     private String name; //이름
 
     @Column(name = "phonenumber")
     private String phoneNumber; // 전화번호
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Builder.Default
+    private Set<CustomerRole> roleSet = new HashSet<>();
 
     @OneToMany(mappedBy = "customer",
             cascade = {CascadeType.ALL},
