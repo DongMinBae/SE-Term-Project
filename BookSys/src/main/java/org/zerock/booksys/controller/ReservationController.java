@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.booksys.dto.CustomerDTO;
 import org.zerock.booksys.dto.ReservationDTO;
@@ -22,6 +23,8 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class ReservationController {
 
+    private final static String RESERVATION_ADD = "add";
+    private final static String RESERVATION_REMOVE = "remove";
     private final ReservationService reservationService;
 
     @GetMapping("/mainpage")
@@ -34,11 +37,21 @@ public class ReservationController {
         log.info("menu select page");
     }
 
-    @PostMapping("/selectmenu") // 미완성
-    public String selectMenuPost(@Valid CustomerDTO customerDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
-       log.info("reservation selectMenu post....");
+    @PostMapping("/selectmenu")
+    public void selectMenuPost(MultipartHttpServletRequest req) throws Exception
+    {
+        String test = req.getParameter("id");
+        String cmd = req.getParameter("cmd");
 
-       return null;
+        switch(cmd)
+        {
+            case RESERVATION_ADD:
+                log.info("해당 셀<"+test+">을 추가 합니다.");
+                break;
+            case RESERVATION_REMOVE:
+                log.info("해당 셀<"+test+">을 삭제 합니다.");
+                break;
+        }
     }
 
     @GetMapping("selectday")
