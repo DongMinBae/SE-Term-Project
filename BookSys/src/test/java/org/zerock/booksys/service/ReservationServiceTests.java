@@ -27,7 +27,7 @@ public class ReservationServiceTests {
                 .build();
 
         ReservationDTO reservationDTO = selectDayDTO.toReservationDTO();
-        reservationDTO.setCno(1L);
+        reservationDTO.setCustomerID("asdf");
 
         Long rno = reservationService.register(reservationDTO);
 

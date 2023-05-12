@@ -16,12 +16,13 @@ public class CustomerRepositoryTests {
     @Test
     public void TestInsert(){
         Customer customer = Customer.builder()
+                .cId("asdf")
                 .name("홍길동")
                 .phoneNumber("010-1234-5678")
                 .build();
         Customer result = customerRepository.save(customer);
 
-        log.info("cno : " + result.getCno());
+        log.info("cno : " + result.getCId());
     }
 
 
