@@ -7,7 +7,7 @@ var row = null
 var cnt = 0;
 var calendarTable = document.getElementById("calendar");
 var calendarTableTitle = document.getElementById("calendarTitle");
-calendarTableTitle.innerHTML = "<font color=#FFFFFF>" + today.getFullYear()+"년"+(today.getMonth()+1)+"월"+ "</font>"; //하얀색
+calendarTableTitle.innerHTML = today.getFullYear()+"년"+(today.getMonth()+1)+"월"
 
 var firstDate = new Date(today.getFullYear(), today.getMonth(), 1);
 var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0);
@@ -29,7 +29,6 @@ cnt += 1;
 
 cell.setAttribute('id', i);
 cell.innerHTML = i;
-cell.innerHTML = "<font color=#FFFFFF>" + i + "</font>"; //날짜하얀색으로출력
 cell.align = "center";
 
 cell.onclick = function(){
@@ -43,6 +42,10 @@ clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
 
 const element = document.getElementById('select_day'); //id가 select_day 인곳에
 element.value = clickedYMD;     //선택날짜 띄우기
+if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
+                document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
+            }
+this.classList.add("choiceDay");
 }
 
 if (cnt % 7 == 1) {
