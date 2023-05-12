@@ -9,13 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.booksys.dto.CustomerDTO;
 import org.zerock.booksys.dto.ReservationDTO;
 import org.zerock.booksys.dto.SelectDayDTO;
-import org.zerock.booksys.service.CustomerService;
 import org.zerock.booksys.service.ReservationService;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/reservation")
@@ -33,7 +29,10 @@ public class ReservationController {
     }
 
     @GetMapping("/selectmenu")
-    public void selectMenu(){
+    public void selectMenu()
+    {
+        //ReservationDTO dto = new ReservationDTO(4L,1,null, 1,ArrivalTime.TIME_08_10,"hello");
+        //reservationService.register(dto);
         log.info("menu select page");
     }
 

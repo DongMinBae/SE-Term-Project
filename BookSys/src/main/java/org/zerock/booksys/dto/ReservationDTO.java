@@ -5,8 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
@@ -20,8 +19,10 @@ public class ReservationDTO {
 
     private Date selectedDate;
 
-    private LocalDateTime arrivalTime;
+    private int tableNumber;
 
-    private Long cno;
+    private ArrivalTime arrivalTime;
+
+    private String customerID;
 
 }

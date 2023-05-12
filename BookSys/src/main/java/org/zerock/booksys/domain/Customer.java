@@ -36,6 +36,7 @@ public class Customer {
             fetch = FetchType.LAZY,
             orphanRemoval = true
             )
+
     private Set<Reservation> reservationSet = new HashSet<>(); // 예약 다대일 매여
 
 }
