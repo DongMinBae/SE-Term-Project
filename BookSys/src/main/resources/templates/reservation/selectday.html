@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="utf-8" />
@@ -75,23 +76,17 @@
         <!-- To make this form functional, sign up at-->
         <!-- https://startbootstrap.com/solution/contact-forms-->
         <!-- to get an API token!-->
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="">  <!-- action에 주소적기-->
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/reservation/selectday" method="post" >  <!-- action에 주소적기-->
             <div class="row align-items-stretch mb-5">
                 <div class="col-md-6">
                     <div class="form-group">
                         <!-- Name input-->
-                        <input class="form-control" name="name" id="name" type="text" placeholder="이름 *" data-sb-validations="required" required/>
+                        <input class="form-control" name="name" id="name" th:value="${#authentication.principal.name}" type="text" placeholder="이름 *" data-sb-validations="required" required readonly/>
                         <div class="invalid-feedback" data-sb-feedback="name:required">이름이 필요합니다.</div>
-                    </div>
-                    <div class="form-group">
-                        <!-- guests number input-->
-                        <input class="form-control" name="guest_number" id="guest_number" type="number" placeholder="인원수 *" data-sb-validations="required,number" required/>
-                        <div class="invalid-feedback" data-sb-feedback="guests:required">인원수가 필요합니다.</div>
-                        <div class="invalid-feedback" data-sb-feedback="guests:number">숫자를 쓰시오.</div>
                     </div>
                     <div class="form-group mb-md-0">
                         <!-- Phone number input-->
-                        <input class="form-control" name="phone" id="phone" type="tel" placeholder="휴대전화 번호 *" pattern="\d{11}" title="-는 빼고 01012345678 형식으로 입력해주세요." data-sb-validations="required" required/>
+                        <input class="form-control" name="phoneNumber" id="phone"th:value="${#authentication.principal.phoneNumber}" type="tel" placeholder="휴대전화 번호 *" pattern="\d{11}" title="-는 빼고 01012345678 형식으로 입력해주세요." data-sb-validations="required" required readonly/>
                         <div class="invalid-feedback" data-sb-feedback="phone:required">휴대전화 번호가 필요합니다.</div>
                     </div>
                 </div>
@@ -99,11 +94,19 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <!-- Day input-->
-                        <input class="form-control" name="select_day" id="select_day" type="text" placeholder="달력에서 날짜를 골라주세요 *" autocomplete="off" data-sb-validations="required" required onkeydown="event.preventDefault()"/>
+                        <input class="form-control" name="selectedDate" id="select_day" type="text" placeholder="달력에서 날짜를 골라주세요 *" autocomplete="off" data-sb-validations="required" required onkeydown="event.preventDefault()"/>
                         <div class="invalid-feedback" data-sb-feedback="select_day:required">날짜 선택이 필요합니다.</div>
+                    </div>
+                    <div class="form-group">
+                        <!-- guests number input-->
+                        <input class="form-control" name="number" id="guest_number" type="number" placeholder="인원수 *" data-sb-validations="required,number" required/>
+                        <div class="invalid-feedback" data-sb-feedback="guests:required">인원수가 필요합니다.</div>
+                        <div class="invalid-feedback" data-sb-feedback="guests:number">숫자를 쓰시오.</div>
                     </div>
                 </div>
             </div>
+
+            <input type="hidden" name="customerID" th:value="${#authentication.principal.username}"/>
             <!-- Submit success message-->
             <!---->
             <!-- This is what your users will see when the form-->
@@ -126,6 +129,15 @@
         </form>
     </div>
 </section>
+
+<script th:inline="javascript" >
+
+    const auth = [[${#authentication.principal}]]
+
+    const errors = [[${errors}]]
+    console.log(errors)
+</script>
+
 <script th:src="@{/js/calander.js}"></script>
 </body>
 </html>
