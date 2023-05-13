@@ -9,11 +9,11 @@ public interface ReservationService {
 
     Long register(ReservationDTO reservationDTO);
 
-    boolean CheckScheduleOccupied(String cid, int tableNumber, ArrivalTime time);
+    boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time);
     void remove(String cid, int tableNumber, ArrivalTime time);
 
     void modify(ReservationDTO reservationDTO);
-
+    void modifyArrivalTime(Long rno,int time);
 
     void remove(Long rno);
 

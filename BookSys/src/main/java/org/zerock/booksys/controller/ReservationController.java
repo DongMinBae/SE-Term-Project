@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,8 +26,8 @@ import org.zerock.booksys.service.ReservationService;
 @RequiredArgsConstructor
 public class ReservationController {
 
-    private final static String RESERVATION_ADD = "add";
-    private final static String RESERVATION_REMOVE = "remove";
+    private final static String RESERVATION_ARRIVAL_TIME_ADD = "add";
+    private final static String RESERVATION_ARRIVAL_TIME_REMOVE = "remove";
 
     private final CustomerService customerService;
     private final ReservationService reservationService;
@@ -37,55 +38,53 @@ public class ReservationController {
         log.info("main page");
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/selectmenu")
-    public void selectMenu()
+    public void selectMenu(Model model)
     {
-        //ReservationDTO dto = new ReservationDTO(4L,1,null, 1,ArrivalTime.TIME_08_10,"hello");
-        //reservationService.register(dto);
+        Long rno = (Long) model.getAttribute("result");
+
+
+
         log.info("menu select page");
     }
 
     @PostMapping("/selectmenu")
-    public void selectMenuPost(MultipartHttpServletRequest req) throws Exception {
+    public void selectMenuPost(MultipartHttpServletRequest req) throws Exception
+    {
         String test = req.getParameter("id");
         String cmd = req.getParameter("cmd");
+        Long rno = Long.valueOf(req.getParameter("rno"));
 
-        String userId = "asdf"; // 사용자 아이디
         ArrivalTime[] time = ArrivalTime.values();
 
-        switch (cmd) {
-            case RESERVATION_ADD:
+        switch (cmd)
+        {
+            case RESERVATION_ARRIVAL_TIME_ADD:
                 String[] s = test.split("_");
                 int tableNumber = Integer.parseInt(s[0]);
                 int arrivalTime = Integer.parseInt(s[1]);
 
-                if(this.reservationService.CheckScheduleOccupied(userId,tableNumber,time[arrivalTime]))
+                if(this.reservationService.CheckScheduleOccupied(tableNumber,time[arrivalTime]))
                     log.info("Occupied");
                 else
                 {
-                    ReservationDTO dto = ReservationDTO
-                            .builder()
-                            .customerID(userId)
-                            .arrivalTime(time[arrivalTime])
-                            .tableNumber(tableNumber)
-                            .number(4)
-                            .selectedDate(null)
-                            .build();
+                    this.reservationService.modifyArrivalTime(rno,arrivalTime);
 
-                    this.reservationService.register(dto);
-
-                    log.info("ADD Reservation");
+                    log.info("MODIFY ArrivalTime");
+                    log.info("rno ->"+rno);
                     log.info("arrivalTime ->" + time[arrivalTime]);
                     log.info("tableNumber ->" + tableNumber);
                 }
-
                 break;
-            case RESERVATION_REMOVE:
+            case RESERVATION_ARRIVAL_TIME_REMOVE:
                 String[] s2 = test.split("_");
                 int tableNumber2 = Integer.parseInt(s2[0]);
                 int arrivalTime2 = Integer.parseInt(s2[1]);
-                this.reservationService.remove(userId,tableNumber2,time[arrivalTime2]);
-                log.info("REMOVE Reservation");
+
+                this.reservationService.modifyArrivalTime(rno,-1);
+
+                log.info("REMOVE ArrivalTime");
                 log.info("arrivalTime ->" + time[arrivalTime2]);
                 log.info("tableNumber ->" + tableNumber2);
                 break;
@@ -118,7 +117,6 @@ public class ReservationController {
 
         return "redirect:/reservation/selectmenu";
     }
-
 
 
 }

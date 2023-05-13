@@ -1,7 +1,7 @@
 var cells = document.querySelectorAll("td"); // 테이블 셀 선택 메서드
 var isChecked = false;
 var CheckedCell;
-
+var rno = $('input[name=result]').val();
 cells.forEach(function (cell) {
     if (!cell.classList.contains("occupied")) {
         cell.addEventListener("click", function () {
@@ -15,10 +15,13 @@ cells.forEach(function (cell) {
             CheckedCell = cell;
             isChecked = true;
             console.log("셀이 클릭되었습니다.");
+            console.log(rno);
         });
     }
 
 });
+
+
 
 var addButton = document.querySelector("#addButton"); // 선택한 셀 예약 상태로 변경하는 메서드
 addButton.addEventListener("click", function () {
@@ -30,6 +33,7 @@ addButton.addEventListener("click", function () {
 
         let formData = new FormData();
         formData.append('id',cell.getAttribute("id"));
+        formData.append('rno',rno);
         formData.append('cmd',"add");
 
         console.log("해당 셀<"+cell.getAttribute("id")+">가 추가됩니다.");
@@ -51,6 +55,7 @@ removeButton.addEventListener("click", function () {
 
         let formData = new FormData();
         formData.append('id',cell.getAttribute("id"));
+        formData.append('rno',rno);
         formData.append('cmd',"remove");
 
         console.log("해당 셀<"+cell.getAttribute("id")+">가 삭제됩니다.");

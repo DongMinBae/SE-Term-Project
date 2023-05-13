@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
        xmlns:th="http://www.thymeleaf.org">
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<input type="hidden" name="result" th:value="${result}">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -72,13 +73,13 @@
                 <tbody>
                     <tr>
                         <th>1</th>
-                        <td id="1_0"></td>
+                        <td id="1_0" th:class="${m1_0} == '1' ? 'occupied'"></td>
                         <td id="1_1" class="occupied"></td>
-                        <td id="1_2" class="occupied"></td>
-                        <td id="1_3"></td>
-                        <td id="1_4"></td>
-                        <td id="1_5"></td>
-                        <td id="1_6"></td>
+                        <td id="1_2" th:class="${m1_0} == '1' ? 'occupied'"></td>
+                        <td id="1_3" th:class="${m1_3} == '1' ? 'occupied'"></td>
+                        <td id="1_4" th:class="${m1_4} == '1' ? 'occupied'"></td>
+                        <td id="1_5" th:class="${m1_5} == '1' ? 'occupied'"></td>
+                        <td id="1_6" th:class="${m1_6} == '1' ? 'occupied'"></td>
                     </tr>
                     <tr>
                         <th>2</th>
@@ -225,6 +226,9 @@
                         <tr>
                             <th>
                                 <h6>Item</h6>
+
+
+
                             </th>
                             <th>
                                 <h6>Quantity</h6>

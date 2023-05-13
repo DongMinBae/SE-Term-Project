@@ -43,9 +43,9 @@ public class ReservationServiceImpl implements ReservationService{
      * @return
      */
     @Override
-    public boolean CheckScheduleOccupied(String cid, int tableNumber, ArrivalTime time)
+    public boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time)
     {
-        List<Reservation> list = reservationRepository.findReservation(cid);
+        List<Reservation> list = reservationRepository.findByTableNumberAndArrivalTime(tableNumber,time);
         if(list.isEmpty()) return false;
         for(Reservation r : list)
         {
@@ -75,8 +75,18 @@ public class ReservationServiceImpl implements ReservationService{
     @Override
     public void modify(ReservationDTO reservationDTO) {
         Optional<Reservation> result = reservationRepository.findById(reservationDTO.getRno());
-
         Reservation reservation = result.orElseThrow();
+
+
+    }
+
+    @Override
+    public void modifyArrivalTime(Long rno,int time)
+    {
+        if(time == -1)
+            reservationRepository.modifyArrivalTime(rno);
+        else
+            reservationRepository.modifyArrivalTime(rno,time);
     }
 
     @Override
