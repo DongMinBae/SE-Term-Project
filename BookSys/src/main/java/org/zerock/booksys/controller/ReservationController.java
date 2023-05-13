@@ -3,6 +3,7 @@ package org.zerock.booksys.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -91,13 +92,14 @@ public class ReservationController {
         }
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("selectday")
     public void selectDay(){
         log.info("select day page");
     }
 
     @PostMapping("/selectday")
-    public String selectDayPost(SelectDayDTO reservationDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+    public String selectDayPost(SelectDayDTO selectDayDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
         log.info("reservation selectDay Post ....");
 
         if(bindingResult.hasErrors()){
@@ -106,11 +108,13 @@ public class ReservationController {
             return "redirect:/reservation/selectday";
         }
 
-        log.info("Post form selectMenu : " + reservationDTO);
+        log.info("Post form selectMenu : " + selectDayDTO);
 
-        //Long rno = reservationService.register(reservationDTO);
+        ReservationDTO reservationDTO = selectDayDTO.toReservationDTO();
 
-        //redirectAttributes.addFlashAttribute("result", rno);
+        Long rno = reservationService.register(reservationDTO);
+
+        redirectAttributes.addFlashAttribute("result", rno);
 
         return "redirect:/reservation/selectmenu";
     }

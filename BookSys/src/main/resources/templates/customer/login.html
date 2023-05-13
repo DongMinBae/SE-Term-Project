@@ -15,14 +15,14 @@
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/BookSys/src/main/resources/static/css/loginstyles.css" rel="stylesheet" />
+    <link th:href="@{/css/loginstyles.css}" rel="stylesheet" />
 </head>
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-        <a class="navbar-brand" href="#!">예약맛집</a>
-        <a class="btn btn-primary" href="register.html">회원가입</a>
+        <a class="navbar-brand" href="/reservation/mainpage">예약맛집</a>
+        <a class="btn btn-primary" href="/customer/join">회원가입</a>
     </div>
 </nav>
 <!-- Masthead-->
@@ -41,15 +41,15 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN" action="/customer/login" method="post" >
                         <!-- Email address input-->
                         <div class="col">
-                            <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="이메일을 입력하세요." data-sb-validations="required,email" />
+                            <input name="username" class="form-control form-control-lg" id="emailAddress" type="email" placeholder="이메일을 입력하세요." data-sb-validations="required,email" />
                             <div class="invalid-feedback text-black" data-sb-feedback="emailAddress:required">이메일 주소가 아닙니다.</div>
                             <div class="invalid-feedback text-black" data-sb-feedback="emailAddress:email">이메일을 입력하세요.</div>
                         </div>
                         <div class="col">
-                            <input class="form-control form-control-lg" id="loginPassword" type="password" placeholder="비밀번호를 입력하세요." data-sb-validations="required,password" />
+                            <input name="password" class="form-control form-control-lg" id="loginPassword" type="password" placeholder="비밀번호를 입력하세요." data-sb-validations="required,password" />
                         </div>
                         <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">제출</button></div>
                         <div class
