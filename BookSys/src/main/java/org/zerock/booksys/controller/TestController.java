@@ -40,7 +40,7 @@ public class TestController
 
         TestDTO dto = new TestDTO("test","hello");
         log.log(Level.INFO,"dto: " + dto.toString());
-        return "test";
+        return "index";
     }
 
 //    @PostMapping("/testform")

@@ -23,11 +23,10 @@ public class ReservationServiceTests {
                 .number(2)
                 .phoneNumber("01012345678")
                 .selectedDate(Date.valueOf("2022-05-22"))
-                .selectTime("오전")
+                .customerID("asdf")
                 .build();
 
         ReservationDTO reservationDTO = selectDayDTO.toReservationDTO();
-        reservationDTO.setCno(1L);
 
         Long rno = reservationService.register(reservationDTO);
 

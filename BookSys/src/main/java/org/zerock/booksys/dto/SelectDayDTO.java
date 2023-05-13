@@ -22,12 +22,14 @@ public class SelectDayDTO {
 
     private Date selectedDate;
 
-    private String selectTime;
+    private String customerID;
+
 
     public ReservationDTO toReservationDTO(){
         ReservationDTO reservationDTO = ReservationDTO.builder()
                 .number(number)
                 .selectedDate(selectedDate)
+                .customerID(customerID)
                 .build();
 
         return reservationDTO;

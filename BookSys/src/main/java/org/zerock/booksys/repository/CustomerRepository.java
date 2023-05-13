@@ -7,9 +7,10 @@ import org.zerock.booksys.domain.Customer;
 
 import java.util.Optional;
 
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, String> {
 
     @EntityGraph(attributePaths = "roleSet")
-    @Query("select m from Customer m")
-    Optional<Customer> getWithRoles(String mid);
+    @Query("select c from Customer c where c.cId = :cid and c.social = false")
+    Optional<Customer> getWithRoles(String cid);
+
 }
