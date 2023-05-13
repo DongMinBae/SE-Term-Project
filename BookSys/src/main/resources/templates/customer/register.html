@@ -15,14 +15,14 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="/BookSys/src/main/resources/static/css/loginstyles.css" rel="stylesheet" />
+        <link th:href="@{/css/loginstyles.css}" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">예약맛집</a>
-                <a class="btn btn-primary" href="login.html">로그인</a>
+                <a class="navbar-brand" href="../reservation/mainpage">예약맛집</a>
+                <a class="btn btn-primary" href="./login">로그인</a>
             </div>
         </nav>
         <!-- Masthead-->

@@ -18,4 +18,9 @@ public class CustomerController {
         log.info("login page");
     }
 
+    @GetMapping("/register")
+    public void register(){
+        log.info("register page");
+    }
+
 }
