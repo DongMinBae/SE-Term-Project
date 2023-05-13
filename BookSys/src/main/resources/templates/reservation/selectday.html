@@ -27,6 +27,24 @@
 </head>
 
 <body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="./mainpage">예약맛집</a>
+        <!--<img th:src="@{/assets/main-img/navbar-logo.svg}" alt="..." />-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="./selectday">예약 수정</a></li>
+                <li class="nav-item"><a class="nav-link" href="./review.html">리뷰</a></li>
+                <li class="nav-item"><a class="nav-link" href="../customer/login">로그인</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <section class="page-section" id="contact">    <!--    style.css에서 id가 contact인 부분에서 이미지 삭제함-->
     <div class="container">
         <div class="text-center">

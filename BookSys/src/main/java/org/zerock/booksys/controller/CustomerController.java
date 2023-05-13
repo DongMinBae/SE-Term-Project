@@ -52,4 +52,9 @@ public class CustomerController {
         return "redirect:/customer/login";
     }
 
+    @GetMapping("/register")
+    public void register(){
+        log.info("register page");
+    }
+
 }
