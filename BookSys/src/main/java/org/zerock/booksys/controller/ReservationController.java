@@ -20,6 +20,8 @@ import org.zerock.booksys.dto.SelectDayDTO;
 import org.zerock.booksys.service.CustomerService;
 import org.zerock.booksys.service.ReservationService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/reservation")
 @Log4j2
@@ -44,7 +46,13 @@ public class ReservationController {
     {
         Long rno = (Long) model.getAttribute("result");
 
+        List<String> list = reservationService.getAvailableSchedule(rno);
 
+        for(String a : list)
+        {
+            if(a == null) continue;
+            model.addAttribute("m"+a,"occupied");
+        }
 
         log.info("menu select page");
     }
@@ -69,7 +77,7 @@ public class ReservationController {
                     log.info("Occupied");
                 else
                 {
-                    this.reservationService.modifyArrivalTime(rno,arrivalTime);
+                    this.reservationService.modifySchedule(rno,arrivalTime,tableNumber);
 
                     log.info("MODIFY ArrivalTime");
                     log.info("rno ->"+rno);
@@ -82,7 +90,7 @@ public class ReservationController {
                 int tableNumber2 = Integer.parseInt(s2[0]);
                 int arrivalTime2 = Integer.parseInt(s2[1]);
 
-                this.reservationService.modifyArrivalTime(rno,-1);
+                this.reservationService.modifySchedule(rno,-1,-1);
 
                 log.info("REMOVE ArrivalTime");
                 log.info("arrivalTime ->" + time[arrivalTime2]);

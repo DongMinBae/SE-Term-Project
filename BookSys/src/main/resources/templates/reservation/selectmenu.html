@@ -53,7 +53,7 @@
     <!-- Modify or Delete-->
     <section id="modifyOrDelete" class="page-section">
         <div class="title">
-            <h2 class="section-heading text-center text-uppercase">Modify / Delete</h2>
+            <h2 class="section-heading text-center text-uppercase">Modify/Delete</h2>
             <h3 class="section-subheading text-center text-muted">You can MODIFY or DELETE your reservation.</h3>
         </div>
         <div class="contents">
@@ -73,43 +73,43 @@
                 <tbody>
                     <tr>
                         <th>1</th>
-                        <td id="1_0" th:class="${m1_0} == '1' ? 'occupied'"></td>
-                        <td id="1_1" class="occupied"></td>
-                        <td id="1_2" th:class="${m1_0} == '1' ? 'occupied'"></td>
-                        <td id="1_3" th:class="${m1_3} == '1' ? 'occupied'"></td>
-                        <td id="1_4" th:class="${m1_4} == '1' ? 'occupied'"></td>
-                        <td id="1_5" th:class="${m1_5} == '1' ? 'occupied'"></td>
-                        <td id="1_6" th:class="${m1_6} == '1' ? 'occupied'"></td>
+                        <td id="1_0" th:class="${m1_0}"></td>
+                        <td id="1_1" th:class="${m1_1}"></td>
+                        <td id="1_2" th:class="${m1_2}"></td>
+                        <td id="1_3" th:class="${m1_3}"></td>
+                        <td id="1_4" th:class="${m1_4}"></td>
+                        <td id="1_5" th:class="${m1_5}"></td>
+                        <td id="1_6" th:class="${m1_6}"></td>
                     </tr>
                     <tr>
                         <th>2</th>
-                        <td id="2_0"></td>
-                        <td id="2_1"></td>
-                        <td id="2_2"></td>
-                        <td id="2_3"></td>
-                        <td id="2_4"></td>
-                        <td id="2_5"></td>
-                        <td id="2_6"></td>
+                        <td id="2_0" th:class="${m2_0}"></td>
+                        <td id="2_1" th:class="${m2_1}"></td>
+                        <td id="2_2" th:class="${m2_2}"></td>
+                        <td id="2_3" th:class="${m2_3}"></td>
+                        <td id="2_4" th:class="${m2_4}"></td>
+                        <td id="2_5" th:class="${m2_5}"></td>
+                        <td id="2_6" th:class="${m2_6}"></td>
                     </tr>
                     <tr>
                         <th>3</th>
-                        <td id="3_0"></td>
-                        <td id="3_1"></td>
-                        <td id="3_2"></td>
-                        <td id="3_3"></td>
-                        <td id="3_4"></td>
-                        <td id="3_5"></td>
-                        <td id="3_6"></td>
+                        <td id="3_0" th:class="${m3_0}"></td>
+                        <td id="3_1" th:class="${m3_1}"></td>
+                        <td id="3_2" th:class="${m3_2}"></td>
+                        <td id="3_3" th:class="${m3_3}"></td>
+                        <td id="3_4" th:class="${m3_4}"></td>
+                        <td id="3_5" th:class="${m3_5}"></td>
+                        <td id="3_6" th:class="${m3_6}"></td>
                     </tr>
                     <tr>
                         <th>4</th>
-                        <td id="4_0"></td>
-                        <td id="4_1"></td>
-                        <td id="4_2"></td>
-                        <td id="4_3"></td>
-                        <td id="4_4"></td>
-                        <td id="4_5"></td>
-                        <td id="4_6"></td>
+                        <td id="4_0" th:class="${m4_0}"></td>
+                        <td id="4_1" th:class="${m4_1}"></td>
+                        <td id="4_2" th:class="${m4_2}"></td>
+                        <td id="4_3" th:class="${m4_3}"></td>
+                        <td id="4_4" th:class="${m4_4}"></td>
+                        <td id="4_5" th:class="${m4_5}"></td>
+                        <td id="4_6" th:class="${m4_6}"></td>
                     </tr>
                 </tbody>
             </table>
@@ -121,16 +121,17 @@
     </section>
 
     <!-- Select Menu -->
-    <section id="selectMenu" class="page-section bg-light">
-        <div class="title text-center">
-            <h2 class="section-heading text-uppercase">Select Menu</h2>
-            <h3 class="section-subheading text-muted">You can Select Menu.</h3>
-        </div>
-        <div class="contents">
-            <div id="portfolio" class="left row">
 
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 1-->
+        <section id="selectMenu" class="page-section bg-light">
+            <div class="title text-center">
+                <h2 class="section-heading text-uppercase">Select Menu</h2>
+                <h3 class="section-subheading text-muted">You can Select Menu.</h3>
+            </div>
+            <div class="contents">
+                <div id="portfolio" class="left row">
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                             <div class="portfolio-hover">
@@ -257,7 +258,8 @@
                 </div>
             </div>
         </div>
-    </section>
+        </section>
+
 
     <!-- Portfolio Modals-->
     <!-- Portfolio item 1 modal popup-->

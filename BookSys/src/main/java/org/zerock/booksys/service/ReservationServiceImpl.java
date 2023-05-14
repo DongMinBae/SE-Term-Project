@@ -16,6 +16,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Log4j2
@@ -58,6 +59,34 @@ public class ReservationServiceImpl implements ReservationService{
     }
 
     @Override
+    public List<String> getAvailableSchedule(Long rno) {
+        List<Reservation> list = this.reservationRepository.findReservationSameDate(rno);
+        return list.stream().map(r -> {
+            if(r.getTableNumber() == 0)
+                return null;
+            else
+                return r.getTableNumber() +"_"+r.getArrivalTime().getValue();
+        }).collect(Collectors.toList());
+    }
+
+    @Override
+    public String getSchedule(Long rno) {
+        List<Reservation> list = this.reservationRepository.findReservation(rno);
+
+        if(list.isEmpty())
+            return null;
+        else
+        {
+            Reservation r = list.get(0);
+            if(r.getTableNumber() == 0)
+                return null;
+            else
+                return r.getTableNumber() +"_"+r.getArrivalTime().getValue();
+        }
+    }
+
+
+    @Override
     public void remove(String cid, int tableNumber, ArrivalTime time) {
         List<Reservation> list = reservationRepository.findReservation(cid);
         Reservation del = null;
@@ -81,12 +110,18 @@ public class ReservationServiceImpl implements ReservationService{
     }
 
     @Override
-    public void modifyArrivalTime(Long rno,int time)
+    public void modifySchedule(Long rno,int time,int table)
     {
         if(time == -1)
+        {
             reservationRepository.modifyArrivalTime(rno);
+            reservationRepository.modifyTableNo(rno);
+        }
         else
+        {
             reservationRepository.modifyArrivalTime(rno,time);
+            reservationRepository.modifyTableNo(rno,table);
+        }
     }
 
     @Override

@@ -1,7 +1,13 @@
 var cells = document.querySelectorAll("td"); // 테이블 셀 선택 메서드
 var isChecked = false;
 var CheckedCell;
+var AddCell;
 var rno = $('input[name=result]').val();
+
+function isNull(v) {
+    return (v === undefined || v === null) ? true : false;
+}
+
 cells.forEach(function (cell) {
     if (!cell.classList.contains("occupied")) {
         cell.addEventListener("click", function () {
@@ -28,6 +34,9 @@ addButton.addEventListener("click", function () {
     var selectedCells = document.querySelectorAll("td.selected");
     selectedCells.forEach(function (cell) {
 
+        if(!isNull(AddCell))
+            AddCell.classList.remove("reserved");
+
         cell.classList.remove("selected");
         cell.classList.add("reserved");
 
@@ -37,6 +46,7 @@ addButton.addEventListener("click", function () {
         formData.append('cmd',"add");
 
         console.log("해당 셀<"+cell.getAttribute("id")+">가 추가됩니다.");
+        AddCell = cell;
 
         fetch('http://localhost:8080/reservation/selectmenu',{
             method:'POST',

@@ -5,15 +5,22 @@ import org.zerock.booksys.dto.ArrivalTime;
 import org.zerock.booksys.dto.CustomerDTO;
 import org.zerock.booksys.dto.ReservationDTO;
 
+import java.util.List;
+
 public interface ReservationService {
 
     Long register(ReservationDTO reservationDTO);
 
     boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time);
+    List<String> getAvailableSchedule(Long rno);
+    String getSchedule(Long rno);
+
     void remove(String cid, int tableNumber, ArrivalTime time);
 
     void modify(ReservationDTO reservationDTO);
-    void modifyArrivalTime(Long rno,int time);
+    void modifySchedule(Long rno,int time,int table);
+
+
 
     void remove(Long rno);
 

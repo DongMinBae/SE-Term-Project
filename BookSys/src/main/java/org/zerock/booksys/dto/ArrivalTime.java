@@ -2,11 +2,19 @@ package org.zerock.booksys.dto;
 
 public enum ArrivalTime
 {
-    TIME_08_10,
-    TIME_10_12,
-    TIME_12_14,
-    TIME_14_16,
-    TIME_16_18,
-    TIME_18_20,
-    TIME_20_22;
+    TIME_08_10(0),
+    TIME_10_12(1),
+    TIME_12_14(2),
+    TIME_14_16(3),
+    TIME_16_18(4),
+    TIME_18_20(5),
+    TIME_20_22(6);
+
+    private final int value;
+    private ArrivalTime(int value) {
+        this.value = value;
+    }
+    public int getValue() {
+        return value;
+    }
 }

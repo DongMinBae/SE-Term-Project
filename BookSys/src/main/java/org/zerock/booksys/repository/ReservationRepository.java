@@ -15,8 +15,12 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 
     @Query(value = "SELECT * FROM reservation m WHERE m.cid = :cid", nativeQuery = true)
     List<Reservation> findReservation(@Param("cid") String cid);
+    @Query(value = "SELECT * FROM reservation m WHERE m.rno = :rno", nativeQuery = true)
+    List<Reservation> findReservation(@Param("rno") Long rno);
     @Query(value = "DELETE FROM reservation WHERE cid = :cid", nativeQuery = true)
     void deleteReservation(@Param("cid") String cid);
+    @Query(value = "SELECT * FROM reservation m WHERE m.selected_date = (SELECT a.selected_date FROM reservation a WHERE a.rno = :rno)", nativeQuery = true)
+    List<Reservation> findReservationSameDate(@Param("rno") Long rno);
 
     @Transactional
     @Modifying
@@ -27,6 +31,17 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     @Modifying
     @Query(value = "Update reservation m set m.arrivaltime = NULL where m.rno = :rno", nativeQuery = true)
     void modifyArrivalTime(@Param("rno") Long rno);
+
+    @Transactional
+    @Modifying
+    @Query(value = "Update reservation m set m.tableno = :tableno where m.rno = :rno", nativeQuery = true)
+    void modifyTableNo(@Param("rno") Long rno, @Param("tableno") int tableno);
+
+    @Transactional
+    @Modifying
+    @Query(value = "Update reservation m set m.tableno = 0 where m.rno = :rno", nativeQuery = true)
+    void modifyTableNo(@Param("rno") Long rno);
+
 
     List<Reservation> findByTableNumberAndArrivalTime(int tableNumber,ArrivalTime arrivalTime);
 
