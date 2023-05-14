@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30fbb82b-1bbd-4653-af07-c3b1b1e3538a" name="Changes" comment="">
+    <list default="true" id="30fbb82b-1bbd-4653-af07-c3b1b1e3538a" name="Changes" comment="제출 버튼 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/static/css/loginstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/static/css/loginstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +41,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/loginpage" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="loginpage" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -172,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683800900826</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="제출 버튼 수정">
+      <created>1684069497973</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684069497973</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +235,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="로그인 회원가입 분리&#10;이메일 비밀번호 칸 분리" />
-    <option name="LAST_COMMIT_MESSAGE" value="로그인 회원가입 분리&#10;이메일 비밀번호 칸 분리" />
+    <MESSAGE value="제출 버튼 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="제출 버튼 수정" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
