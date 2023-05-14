@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="30fbb82b-1bbd-4653-af07-c3b1b1e3538a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/static/css/loginstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/static/css/loginstyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/join.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/templates/customer/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="loginpage" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
