@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30fbb82b-1bbd-4653-af07-c3b1b1e3538a" name="Changes" comment="제출 버튼 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/static/css/added styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/static/css/added styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookSys/src/main/resources/templates/reservation/selectmenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookSys/src/main/resources/templates/reservation/selectmenu.html" afterDir="false" />
-    </list>
+    <list default="true" id="30fbb82b-1bbd-4653-af07-c3b1b1e3538a" name="Changes" comment="- separated original page into two pages&#10;- changed language&#10;- modified page style" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -231,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684069497973</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- separated original page into two pages&#10;- changed language&#10;- modified page style">
+      <created>1684239637501</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684239637501</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +280,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="로그인 회원가입 분리&#10;이메일 비밀번호 칸 분리" />
     <MESSAGE value="제출 버튼 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="제출 버튼 수정" />
+    <MESSAGE value="- separated original page into two pages&#10;- changed language&#10;- modified page style" />
+    <option name="LAST_COMMIT_MESSAGE" value="- separated original page into two pages&#10;- changed language&#10;- modified page style" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
