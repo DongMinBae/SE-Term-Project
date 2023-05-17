@@ -41,7 +41,7 @@ public class ReservationController {
     }
 
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/selectmenu")
+    @GetMapping("/modifyordelete")
     public void selectMenu(Model model)
     {
         Long rno = (Long) model.getAttribute("result");
@@ -57,7 +57,7 @@ public class ReservationController {
         log.info("menu select page");
     }
 
-    @PostMapping("/selectmenu")
+    @PostMapping("/modifyordelete")
     public void selectMenuPost(MultipartHttpServletRequest req) throws Exception
     {
         String test = req.getParameter("id");
@@ -123,7 +123,7 @@ public class ReservationController {
 
         redirectAttributes.addFlashAttribute("result", rno);
 
-        return "redirect:/reservation/selectmenu";
+        return "redirect:/reservation/modifyordelete";
     }
 
 
