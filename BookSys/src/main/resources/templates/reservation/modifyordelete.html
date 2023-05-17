@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Korean Restaurant</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link th:href="/css/styles.css" rel="stylesheet" />
+    <!-- Added Style -->
+    <link th:href="/css/added styles.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" th:href="/assets/favicon.ico" />
+</head>
+
+<body>
+    <!-- Modify or Delete-->
+    <section id="modifyOrDelete" class="page-section">
+        <div class="title">
+            <h2 class="section-heading text-center text-uppercase">예약 수정</h2>
+            <h3 class="section-subheading text-center text-muted">예약을 수정하려면, 일정을 선택한 후 추가/제거 버튼을 누르세요.</h3>
+        </div>
+        <div class="contents">
+            <table class="text-center">
+                <thead>
+                    <tr>
+                        <th>Table</th>
+                        <th>08:00-10:00</th>
+                        <th>10:00-12:00</th>
+                        <th>12:00-14:00</th>
+                        <th>14:00-16:00</th>
+                        <th>16:00-18:00</th>
+                        <th>18:00-20:00</th>
+                        <th>20:00-22:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td id="1_0"></td>
+                        <td id="1_1" class="occupied"></td>
+                        <td id="1_2" class="occupied"></td>
+                        <td id="1_3"></td>
+                        <td id="1_4"></td>
+                        <td id="1_5"></td>
+                        <td id="1_6"></td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td id="2_0"></td>
+                        <td id="2_1"></td>
+                        <td id="2_2"></td>
+                        <td id="2_3"></td>
+                        <td id="2_4"></td>
+                        <td id="2_5"></td>
+                        <td id="2_6"></td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td id="3_0"></td>
+                        <td id="3_1"></td>
+                        <td id="3_2"></td>
+                        <td id="3_3"></td>
+                        <td id="3_4"></td>
+                        <td id="3_5"></td>
+                        <td id="3_6"></td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td id="4_0"></td>
+                        <td id="4_1"></td>
+                        <td id="4_2"></td>
+                        <td id="4_3"></td>
+                        <td id="4_4"></td>
+                        <td id="4_5"></td>
+                        <td id="4_6"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="buttons text-center">
+                <button id="addButton" class="btn btn-xl btn-success text-uppercase" type="submit">추가</button>
+                <button id="removeButton" class="btn btn-xl btn-danger text-uppercase" type="submit">제거</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script th:src="/js/scripts.js"></script>
+    <script th:src="/js/added%20scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn0.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>

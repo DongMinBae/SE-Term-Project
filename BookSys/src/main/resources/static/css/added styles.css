@@ -1,5 +1,10 @@
+body * {
+    font-family: "NanumSquareNeo" !important;
+}
+
 #modifyOrDelete table {
     width: 90%;
+    height: 60vh;
     margin: 2rem auto;
     border: 0.1rem solid var(--bs-gray);
 }
@@ -9,7 +14,7 @@
 }
 
 #modifyOrDelete td {
-    border: 0.05rem dotted var(--bs-gray-);
+    border: 0.05rem dotted var(--bs-gray);
 }
 
 td.occupied {
@@ -24,33 +29,39 @@ td.selected {
     background-color: var(--bs-yellow);
 }
 
+#selectMenu * {
+    box-sizing: border-box !important;
+}
+
 #selectMenu .contents {
-    width: 90%;
-    height: 80vh;
     margin: 0 auto;
+    border-radius: 1rem;
+    width: 80%;
+    height: 90vh;
+    overflow: hidden;
 }
 
 #selectMenu .left {
+    margin: 0;
+    padding: 1rem;
     width: 75%;
     height: 100%;
-    padding: 1rem 0;
     float: left;
     background-color: var(--bs-gray-600);
     overflow-y: auto;
 }
 
 #selectMenu .right {
+    padding: 1rem;
     width: 25%;
     height: 100%;
-    padding: 1rem;
     float: right;
     background-color: var(--bs-gray-200);
-    overflow: hidden;
 }
 
 #selectMenu table {
     width: 100%;
-    height: 80%;
+    height: 80%
 }
 
 #selectMenu thead {
@@ -92,10 +103,17 @@ td.selected {
     vertical-align: middle;
 }
 
-#confirmButton {
-    vertical-align: middle;
+@font-face {
+    font-family: "NanumSquareNeo";
+    src: url(../../static/assets/fonts/NanumSquareNeo-eHv.ttf);
 }
 
-#selectMenu h6 {
+@font-face {
+    font-family: "NanumPen";
+    src: url(../../static/assets/fonts/NanumPen.ttf);
+}
 
+@font-face {
+    font-family: "MaruBuri";
+    src: url(../../static/assets/fonts/MaruBuri-Bold.ttf);
 }
