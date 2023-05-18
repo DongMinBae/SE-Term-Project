@@ -9,7 +9,7 @@
         <meta name="author" content="" />
         <title>Landing Page - Start Bootstrap Theme</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
@@ -41,13 +41,19 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN"action="/customer/join" method="post">
                                 <!-- Email address input-->
                                 <div class="col">
-                                    <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="이메일을 입력하세요." data-sb-validations="required,email" />
+                                    <input class="form-control form-control-lg" name="cId" id="emailAddress" type="email" placeholder="이메일을 입력하세요." data-sb-validations="required,email" />
                                 </div>
                                 <div class="col">
-                                    <input class="form-control form-control-lg" id="loginPassword" type="password" placeholder="비밀번호를 입력하세요." data-sb-validations="required,password" />
+                                    <input class="form-control form-control-lg" name="cPassword" id="loginPassword" type="password" placeholder="비밀번호를 입력하세요." data-sb-validations="required,password" />
+                                </div>
+                                <div class="col">
+                                    <input class="form-control form-control-lg" name="name" placeholder="이름을 입력하세요.">
+                                </div>
+                                <div class="col">
+                                    <input class="form-control form-control-lg" name="phoneNumber" placeholder="전화번호를 - 뺴고 입력하세요.">
                                 </div>
                                 <div class="col-auto"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">제출</button></div>
                                     <!-- Submit success message-->

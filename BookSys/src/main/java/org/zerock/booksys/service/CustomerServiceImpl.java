@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService{
         if(exist){
             throw new MidExistException();
         }
-        Customer customer = modelMapper.map(customerJoinDTO, Customer.class);
+        Customer customer = customerJoinDTO.toDomain();
         customer.changePassword(passwordEncoder.encode(customerJoinDTO.getCPassword()));
         customer.addRole(CustomerRole.USER);
 
