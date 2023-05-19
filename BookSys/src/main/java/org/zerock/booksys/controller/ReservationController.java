@@ -45,13 +45,21 @@ public class ReservationController {
     public void selectMenu(Model model)
     {
         Long rno = (Long) model.getAttribute("result");
-
+        String cid = (String) model.getAttribute("cid");
         List<String> list = reservationService.getAvailableSchedule(rno);
 
         for(String a : list)
         {
             if(a == null) continue;
             model.addAttribute("m"+a,"occupied");
+        }
+
+        list = reservationService.getModifiableSchedule(cid);
+
+        for(String a : list)
+        {
+            if(a == null) continue;
+            model.addAttribute("m"+a,"reserved");
         }
 
         log.info("menu select page");
@@ -62,6 +70,7 @@ public class ReservationController {
     {
         String test = req.getParameter("id");
         String cmd = req.getParameter("cmd");
+        String cid = req.getParameter("cid");
         Long rno = Long.valueOf(req.getParameter("rno"));
 
         ArrivalTime[] time = ArrivalTime.values();
@@ -90,7 +99,7 @@ public class ReservationController {
                 int tableNumber2 = Integer.parseInt(s2[0]);
                 int arrivalTime2 = Integer.parseInt(s2[1]);
 
-                this.reservationService.modifySchedule(rno,-1,-1);
+                this.reservationService.removeSchedule(cid,tableNumber2,time[arrivalTime2]);
 
                 log.info("REMOVE ArrivalTime");
                 log.info("arrivalTime ->" + time[arrivalTime2]);
@@ -122,7 +131,7 @@ public class ReservationController {
         Long rno = reservationService.register(reservationDTO);
 
         redirectAttributes.addFlashAttribute("result", rno);
-
+        redirectAttributes.addFlashAttribute("cid", reservationDTO.getCustomerID());
         return "redirect:/reservation/modifyordelete";
     }
 

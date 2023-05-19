@@ -3,7 +3,7 @@ var isChecked = false;
 var CheckedCell;
 var AddCell;
 var rno = $('input[name=result]').val();
-
+var cid = $('input[name=cid]').val();
 function isNull(v) {
     return (v === undefined || v === null) ? true : false;
 }
@@ -43,12 +43,13 @@ addButton.addEventListener("click", function () {
         let formData = new FormData();
         formData.append('id',cell.getAttribute("id"));
         formData.append('rno',rno);
+        formData.append('cid',cid);
         formData.append('cmd',"add");
 
         console.log("해당 셀<"+cell.getAttribute("id")+">가 추가됩니다.");
         AddCell = cell;
 
-        fetch('http://localhost:8080/reservation/selectmenu',{
+        fetch('http://localhost:8080/reservation/modifyordelete',{
             method:'POST',
             body : formData
         });
@@ -66,11 +67,12 @@ removeButton.addEventListener("click", function () {
         let formData = new FormData();
         formData.append('id',cell.getAttribute("id"));
         formData.append('rno',rno);
+        formData.append('cid',cid);
         formData.append('cmd',"remove");
 
         console.log("해당 셀<"+cell.getAttribute("id")+">가 삭제됩니다.");
 
-        fetch('http://localhost:8080/reservation/selectmenu',{
+        fetch('http://localhost:8080/reservation/modifyordelete',{
             method:'POST',
             body : formData
         });

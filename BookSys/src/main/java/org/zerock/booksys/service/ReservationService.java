@@ -13,6 +13,7 @@ public interface ReservationService {
 
     boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time);
     List<String> getAvailableSchedule(Long rno);
+    List<String> getModifiableSchedule(String cid);
     String getSchedule(Long rno);
 
     void remove(String cid, int tableNumber, ArrivalTime time);
@@ -20,7 +21,7 @@ public interface ReservationService {
     void modify(ReservationDTO reservationDTO);
     void modifySchedule(Long rno,int time,int table);
 
-
+    void removeSchedule(String cid, int table, ArrivalTime time);
 
     void remove(Long rno);
 

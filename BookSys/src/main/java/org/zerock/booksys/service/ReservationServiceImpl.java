@@ -70,6 +70,17 @@ public class ReservationServiceImpl implements ReservationService{
     }
 
     @Override
+    public List<String> getModifiableSchedule(String cid) {
+        List<Reservation> list = this.reservationRepository.findReservation(cid);
+        return list.stream().map(r -> {
+            if(r.getTableNumber() == 0)
+                return null;
+            else
+                return r.getTableNumber() +"_"+r.getArrivalTime().getValue();
+        }).collect(Collectors.toList());
+    }
+
+    @Override
     public String getSchedule(Long rno) {
         List<Reservation> list = this.reservationRepository.findReservation(rno);
 
@@ -112,17 +123,16 @@ public class ReservationServiceImpl implements ReservationService{
     @Override
     public void modifySchedule(Long rno,int time,int table)
     {
-        if(time == -1)
-        {
-            reservationRepository.modifyArrivalTime(rno);
-            reservationRepository.modifyTableNo(rno);
-        }
-        else
-        {
-            reservationRepository.modifyArrivalTime(rno,time);
-            reservationRepository.modifyTableNo(rno,table);
-        }
+        reservationRepository.modifyArrivalTime(rno,time);
+        reservationRepository.modifyTableNo(rno,table);
     }
+
+    @Override
+    public void removeSchedule(String cid, int table, ArrivalTime time)
+    {
+        reservationRepository.removeReservation(cid,table,time.getValue());
+    }
+
 
     @Override
     public void remove(Long rno)
