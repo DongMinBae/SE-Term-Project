@@ -22,6 +22,9 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     @Query(value = "SELECT * FROM reservation m WHERE m.selected_date = (SELECT a.selected_date FROM reservation a WHERE a.rno = :rno)", nativeQuery = true)
     List<Reservation> findReservationSameDate(@Param("rno") Long rno);
 
+    @Query(value = "SELECT * FROM reservation m WHERE m.cid = :cid AND m.selected_date = (SELECT a.selected_date FROM reservation a WHERE a.rno = :rno)", nativeQuery = true)
+    List<Reservation> findReservationSameDate(@Param("cid") String cid,@Param("rno") Long rno);
+
     @Transactional
     @Modifying
     @Query(value = "Update reservation m set m.arrivaltime = :arrivaltime where m.rno = :rno", nativeQuery = true)

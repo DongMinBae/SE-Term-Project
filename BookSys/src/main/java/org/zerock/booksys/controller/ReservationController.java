@@ -54,7 +54,7 @@ public class ReservationController {
             model.addAttribute("m"+a,"occupied");
         }
 
-        list = reservationService.getModifiableSchedule(cid);
+        list = reservationService.getModifiableSchedule(cid,rno);
 
         for(String a : list)
         {

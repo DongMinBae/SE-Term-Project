@@ -70,8 +70,8 @@ public class ReservationServiceImpl implements ReservationService{
     }
 
     @Override
-    public List<String> getModifiableSchedule(String cid) {
-        List<Reservation> list = this.reservationRepository.findReservation(cid);
+    public List<String> getModifiableSchedule(String cid,Long rno) {
+        List<Reservation> list = this.reservationRepository.findReservationSameDate(cid,rno);
         return list.stream().map(r -> {
             if(r.getTableNumber() == 0)
                 return null;
