@@ -20,7 +20,7 @@ public class HomeController {
         List<GrantedAuthority> authorities = (List<GrantedAuthority>) authentication.getAuthorities();
 
         if (authorities.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
-            return "redirect:/reservation/mainpage";
+            return "redirect:/reservation/managereservation";
         } else {
             return "redirect:/reservation/mainpage";
         }
