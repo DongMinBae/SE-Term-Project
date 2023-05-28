@@ -1,5 +1,7 @@
 package org.zerock.booksys.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -137,7 +139,20 @@ public class ReservationController {
 
     //test
     @GetMapping("/managereservation")
-    public void manager(){
+    public void manager(Model model){
+        String jsonstr = this.reservationService.getReservationListTOJSON();
+        //log.info(jsonstr);
+        model.addAttribute("reservationjson",jsonstr);
         log.info("manager page");
     }
+
+    @PostMapping("/managereservation")
+    public void remove(MultipartHttpServletRequest req){
+        String cmd = req.getParameter("cmd");
+        String rno = req.getParameter("rno");
+        log.info(cmd +"/"+ rno);
+        this.reservationService.remove(Long.parseLong(rno));
+
+    }
+
 }

@@ -1,5 +1,7 @@
 package org.zerock.booksys.service;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -14,6 +16,7 @@ import org.zerock.booksys.repository.ReservationRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -94,6 +97,30 @@ public class ReservationServiceImpl implements ReservationService{
             else
                 return r.getTableNumber() +"_"+r.getArrivalTime().getValue();
         }
+    }
+
+    @Override
+    public String getReservationListTOJSON() {
+        Gson gson = new Gson();
+        List<Reservation> list = reservationRepository.findAllReservation();
+
+        JsonObject main = new JsonObject();
+
+        for(Reservation r : list)
+        {
+            if(r.getSelectedDate() == null) continue;
+            SimpleDateFormat newDtFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date = newDtFormat.format(r.getSelectedDate());
+            Customer c = r.getCustomer();
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("name", c.getName());
+            jsonObject.addProperty("phone", c.getPhoneNumber());
+            jsonObject.addProperty("date",date);
+            main.addProperty(r.getRno()+"", gson.toJson(jsonObject));
+        }
+
+        String jsonStr = gson.toJson(main);
+        return jsonStr;
     }
 
 

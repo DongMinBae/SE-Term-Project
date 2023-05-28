@@ -16,6 +16,8 @@ public interface ReservationService {
     List<String> getModifiableSchedule(String cid,Long rno);
     String getSchedule(Long rno);
 
+    String getReservationListTOJSON();
+
     void remove(String cid, int tableNumber, ArrivalTime time);
 
     void modify(ReservationDTO reservationDTO);
