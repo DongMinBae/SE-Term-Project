@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.booksys.domain.Customer;
@@ -138,6 +139,7 @@ public class ReservationController {
     }
 
     //test
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/managereservation")
     public void manager(Model model){
         String jsonstr = this.reservationService.getReservationListTOJSON();
