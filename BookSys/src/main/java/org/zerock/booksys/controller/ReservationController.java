@@ -135,5 +135,9 @@ public class ReservationController {
         return "redirect:/reservation/modifyordelete";
     }
 
-
+    //test
+    @GetMapping("/managereservation")
+    public void manager(){
+        log.info("manager page");
+    }
 }
