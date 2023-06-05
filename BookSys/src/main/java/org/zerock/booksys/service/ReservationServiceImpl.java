@@ -47,9 +47,9 @@ public class ReservationServiceImpl implements ReservationService{
      * @return
      */
     @Override
-    public boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time)
+    public boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time,Long rno)
     {
-        List<Reservation> list = reservationRepository.findByTableNumberAndArrivalTime(tableNumber,time);
+        List<Reservation> list = this.reservationRepository.findReservationSameDate(rno);
         if(list.isEmpty()) return false;
         for(Reservation r : list)
         {

@@ -11,7 +11,7 @@ public interface ReservationService {
 
     Long register(ReservationDTO reservationDTO);
 
-    boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time);
+    boolean CheckScheduleOccupied(int tableNumber, ArrivalTime time,Long rno);
     List<String> getAvailableSchedule(Long rno);
     List<String> getModifiableSchedule(String cid,Long rno);
     String getSchedule(Long rno);

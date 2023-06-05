@@ -85,7 +85,7 @@ public class ReservationController {
                 int tableNumber = Integer.parseInt(s[0]);
                 int arrivalTime = Integer.parseInt(s[1]);
 
-                if(this.reservationService.CheckScheduleOccupied(tableNumber,time[arrivalTime]))
+                if(this.reservationService.CheckScheduleOccupied(tableNumber,time[arrivalTime],rno))
                     log.info("Occupied");
                 else
                 {
