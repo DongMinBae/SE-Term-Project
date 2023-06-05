@@ -43,8 +43,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE reservation m SET m.tableno = 0, m.arrivaltime = NULL where m.cid = :cid AND m.tableno = :tableno AND m.arrivaltime = :arrivaltime", nativeQuery = true)
-    void removeReservation(@Param("cid") String cid,@Param("tableno") int tableno, @Param("arrivaltime") int arrivaltime);
+    @Query(value = "UPDATE reservation m SET m.tableno = 0, m.arrivaltime = NULL where m.cid = :cid AND m.tableno = :tableno AND m.arrivaltime = :arrivaltime AND m.selected_date = (SELECT a.selected_date FROM reservation a WHERE a.rno = :rno)", nativeQuery = true)
+    void removeReservation(@Param("cid") String cid,@Param("tableno") int tableno, @Param("arrivaltime") int arrivaltime,@Param("rno") Long rno);
 
 
     List<Reservation> findByTableNumberAndArrivalTime(int tableNumber,ArrivalTime arrivalTime);

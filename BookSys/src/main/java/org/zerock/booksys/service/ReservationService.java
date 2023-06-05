@@ -23,7 +23,7 @@ public interface ReservationService {
     void modify(ReservationDTO reservationDTO);
     void modifySchedule(Long rno,int time,int table);
 
-    void removeSchedule(String cid, int table, ArrivalTime time);
+    void removeSchedule(String cid, int table, ArrivalTime time,Long rno);
 
     void remove(Long rno);
 

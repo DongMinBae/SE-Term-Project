@@ -102,7 +102,7 @@ public class ReservationController {
                 int tableNumber2 = Integer.parseInt(s2[0]);
                 int arrivalTime2 = Integer.parseInt(s2[1]);
 
-                this.reservationService.removeSchedule(cid,tableNumber2,time[arrivalTime2]);
+                this.reservationService.removeSchedule(cid,tableNumber2,time[arrivalTime2],rno);
 
                 log.info("REMOVE ArrivalTime");
                 log.info("arrivalTime ->" + time[arrivalTime2]);

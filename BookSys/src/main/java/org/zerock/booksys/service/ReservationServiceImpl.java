@@ -155,9 +155,9 @@ public class ReservationServiceImpl implements ReservationService{
     }
 
     @Override
-    public void removeSchedule(String cid, int table, ArrivalTime time)
+    public void removeSchedule(String cid, int table, ArrivalTime time,Long rno)
     {
-        reservationRepository.removeReservation(cid,table,time.getValue());
+        reservationRepository.removeReservation(cid,table,time.getValue(),rno);
     }
 
 
