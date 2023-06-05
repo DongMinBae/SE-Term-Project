@@ -52,3 +52,10 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+document.querySelector("#endButton").addEventListener("click", function (e){
+    e.stopPropagation()
+    e.preventDefault()
+
+    self.location = '/reservation/mainpage'
+}, false)
