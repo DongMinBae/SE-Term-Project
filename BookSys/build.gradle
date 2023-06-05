@@ -8,7 +8,10 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.11'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'war'
 }
+
+apply plugin: 'war'
 
 group = 'org.zerock'
 version = '0.0.1-SNAPSHOT'
@@ -23,6 +26,12 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+bootWar {
+    archiveBaseName = "test-api"
+    archiveFileName = "test-api.war"
+    archiveVersion = "0.0.0"
 }
 
 dependencies {
